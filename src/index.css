@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+.highlight-pulse {
+  animation: highlightPulse 1.5s ease-in-out 2;
+  border: 2px solid #E8B84B !important;
+  box-shadow: 0 0 20px rgba(232,184,75,0.5) !important;
+}
+
+@keyframes highlightPulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(232,184,75,0.3); 
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(232,184,75,0.8); 
+  }
+}
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Be Vietnam Pro', 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-input: var(--bg-input);
+  --color-bg-hover: var(--bg-hover);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border-base: var(--border-color);
+  --color-border-gold: var(--border-gold);
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-dark: var(--gold-dark);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  --color-dark-bg: #0A0A0A;
+  --color-dark-card: #141414;
+  --color-dark-hover: #1F1F1F;
+  --color-dark-border: #2A2A2A;
+
+  --color-gold-light: #F8DF8F;
+  --color-gold-border: rgba(232, 184, 75, 0.3);
+
+  --color-text-muted: #B8B8B8;
+  --color-text-gold: #E8B84B;
+
+  /* Overriding orange dsb color palette to Dark Luxury Gold for seamless compatibility */
+  --color-orange-50: #FDF9EE;
+  --color-orange-100: #F9F0D4;
+  --color-orange-200: #F4E1AA;
+  --color-orange-300: #EED180;
+  --color-orange-400: #E8B84B;
+  --color-orange-500: #E8B84B;
+  --color-orange-600: #F4C95D;
+  --color-orange-700: #B88A24;
+  --color-orange-800: #8C6819;
+  --color-orange-900: #5C430E;
+  --color-orange-950: #382806;
+}
+
+:root {
+  /* Mặc định = DARK (giữ hiện tại) */
+  --bg-primary: #0A0A0A;
+  --bg-card: #141414;
+  --bg-input: #1F1F1F;
+  --bg-hover: #262626;
+  --bg-elevated: #2A2A2A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8B8B8;
+  --text-muted: #6B7280;
+  --border-color: #2A2A2A;
+  --border-gold: rgba(232,184,75,0.3);
+  --gold: #E8B84B;
+  --gold-hover: #F4C95D;
+  --gold-dark: #B8922F;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #3B82F6;
+
+  /* Scrollbar theo theme */
+  --scrollbar-track: #0A0A0A;
+  --scrollbar-thumb: #2A2A2A;
+
+  /* Backward compatibility */
+  --bg-main: var(--bg-primary);
+  --gold-primary: var(--gold);
+  --text-main: var(--text-primary);
+  --border-subtle: var(--border-color);
+}
+
+:root.light {
+  --bg-primary: #FFFFFF;
+  --bg-card: #F9FAFB;
+  --bg-input: #F3F4F6;
+  --bg-hover: #E5E7EB;
+  --bg-elevated: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
+  --border-color: #E5E7EB;
+  --border-gold: rgba(232,184,75,0.5);
+  --gold: #E8B84B;
+  --gold-hover: #D4A43B;
+  --gold-dark: #B8922F;
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --info: #2563EB;
+
+  /* Scrollbar theo theme */
+  --scrollbar-track: #F3F4F6;
+  --scrollbar-thumb: #D1D5DB;
+
+  /* Backward compatibility */
+  --bg-main: var(--bg-primary);
+  --gold-primary: var(--gold);
+  --text-main: var(--text-primary);
+  --border-subtle: var(--border-color);
+}
+
+/* Smooth transition khi đổi theme */
+* {
+  transition: background-color 0.2s ease, 
+              color 0.2s ease, 
+              border-color 0.2s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+/* Global Dark Luxury Base Styles */
+html, body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+  font-family: 'Be Vietnam Pro', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings font */
+h1, h2, h3, .font-display, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.gold-border {
+  border: 1px solid rgba(232, 184, 75, 0.3);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0C2 0%, #E8B84B 50%, #B88A24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes cartBounce {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.3) rotate(-8deg); }
+  40% { transform: scale(1.2) rotate(8deg); }
+  60% { transform: scale(1.15) rotate(-4deg); }
+  80% { transform: scale(1.05) rotate(2deg); }
+}
+
+.animate-cart-bounce {
+  animation: cartBounce 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes floatPill {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float-subtle {
+  animation: floatPill 3s ease-in-out infinite;
+}
+
+@keyframes flyCartAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(var(--fly-x) * 0.5), calc(var(--fly-y) * 0.3 - 50px)) scale(1.15);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--fly-x), var(--fly-y)) scale(0.25);
+    opacity: 0.1;
+  }
+}
+
+.animate-fly-cart {
+  animation: flyCartAnimation 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Hide everything on page */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Only show receipt and its contents */
+  #order-receipt-print,
+  #order-receipt-print * {
+    visibility: visible !important;
+  }
+
+  #order-receipt-print {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 80mm !important;
+    margin: 0 auto !important;
+    padding: 4mm !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+
+  @page {
+    margin: 3mm;
+    size: auto;
+  }
+}

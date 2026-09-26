@@ -1,0 +1,74 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role, wallet balance, and loyalty points",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["STUDENT", "TEACHER", "GUEST", "CUSTOMER", "STAFF", "ADMIN"] },
+        "schoolRole": { "type": "string", "enum": ["STUDENT", "TEACHER", "GUEST"] },
+        "studentId": { "type": "string" },
+        "phone": { "type": "string" },
+        "balance": { "type": "number" },
+        "rewardPoints": { "type": "number" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer food orders with items and status",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "pickupArea": { "type": "string" },
+        "pickupTime": { "type": "string" },
+        "totalAmount": { "type": "number" },
+        "finalAmount": { "type": "number" },
+        "status": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "customerName", "totalAmount", "status"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Payment, deposit, or refund transaction logs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["deposit", "payment", "refund"] },
+        "userId": { "type": "number" },
+        "userName": { "type": "string" },
+        "userPhone": { "type": "string" },
+        "amount": { "type": "number" },
+        "method": { "type": "string", "enum": ["qr", "cash", "wallet"] },
+        "status": { "type": "string", "enum": ["pending_confirm", "paid", "failed", "expired"] },
+        "transactionId": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "type", "userId", "amount", "method", "status", "transactionId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile documents keyed by Firebase Auth UID"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Orders placed by canteen customers"
+    },
+    "/transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/Transaction" },
+      "description": "QR deposits, payments, and refund transactions"
+    }
+  }
+}

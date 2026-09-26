@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix CanteenGo - Đặt món Canteen",
+  "description": "Hệ thống đặt món Canteen trực tuyến, tạo combo tùy chỉnh dinh dưỡng, quản lý đơn cho Staff và báo cáo Admin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
